@@ -1,0 +1,15 @@
+{
+  "name": "scrc_asignar_priorizacion",
+  "version": "1.0.0",
+  "description": "automatizacion",
+  "license": "MIT",
+  "author": "dairo carrasquilla",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
