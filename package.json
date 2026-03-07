@@ -4,12 +4,11 @@
   "description": "automatizacion",
   "license": "MIT",
   "author": "dairo carrasquilla",
-  "type": "commonjs",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "type": "module",
+  "main": "scripts/script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node scripts/script.js",
+    "python": "python3 scripts/script.py"
   }
 }

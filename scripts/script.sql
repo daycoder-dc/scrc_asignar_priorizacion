@@ -1,0 +1,91 @@
+
+create table maestro_priorizacion_suspension (
+	id serial primary key,
+	prioridad int not null,
+	detalle_prioridad varchar not null,
+	alcance_accion_definida text not null,
+	eliminado boolean null default false,
+	fecha_registro timestamptz null default current_timestamp
+);
+
+select 
+	mps.prioridad, mps.detalle_prioridad, mps.alcance_accion_definida
+from maestro_priorizacion_suspension mps
+where mps.eliminado = false and mps.fecha_registro::date = current_date;
+
+create table pmu_priorizacion_cliente (
+	id serial primary key,
+	prioridad int not null,
+	cuenta varchar not null,
+	numero_os varchar not null,
+	tipo_orden varchar not null,
+	tipo_brigada varchar not null,
+	tipo_actividad varchar not null,
+	fecha_asignacion_cliente date not null,
+	eliminado boolean null default false,
+	fecha_registro timestamptz null default current_timestamp
+);
+
+select 
+    ppc.prioridad, 
+    ppc.cuenta, 
+    ppc.numero_os, 
+    ppc.tipo_orden, 
+    ppc.tipo_brigada, 
+    ppc.tipo_actividad, 
+    ppc.fecha_asignacion_cliente
+from pmu_priorizacion_cliente ppc
+where ppc.eliminado = false and ppc.fecha_registro::date = current_date;
+
+create table maestro_db (
+    id serial primary key,
+    num_lote varchar null,
+    tecnico varchar null,
+    orden varchar null,
+    tip_orden varchar null,
+    nic varchar null,
+    zona varchar null,
+    departamento varchar null,
+    municipio varchar null,
+    corregimiento varchar null,
+    localidad varchar null,
+    tip_via varchar null,
+    nom_calle varchar null,
+    duplicador varchar null,
+    num_puerta int null,
+    direccion varchar null,
+    dir_referencia varchar null,
+    nombre_cliente varchar null,
+    tarifa varchar null,
+    deuda_vencida decimal null,
+    facturas_vencidas int null,
+    num_medidor varchar null,
+    marca_medidor varchar null,
+    antiguedad int null,
+    estado varchar null,
+    ct_gestor varchar null,
+    comentario text null,
+    tipo_suspension_scr varchar null,
+    estado_del_servicio varchar null,
+    deuda_hoy decimal null,
+    fecha_de_vencimiento date null,
+    facturas_vencidas_2 int null,
+    nombre_del_cliente_2 varchar null,
+    tarifa_2 varchar null,
+    marca_medidor_2 varchar null,
+    numero_de_medidor varchar null,
+    municipio_2 varchar null,
+    corregimiento_2 varchar null,
+    barrio varchar null,
+    direccion_2 varchar null,
+    multifamiliar int null,
+    material_en_bodega varchar null,
+    maestro_zona varchar null,
+    priorizacion int null,
+    exclusiones_temporal varchar null,
+    tipo_brigada varchar null,
+    cluster varchar null,
+    zona_maestro varchar null,
+    eliminado boolean default false,
+    fecha_registro timestamptz default current_timestamp
+);

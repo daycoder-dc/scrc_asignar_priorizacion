@@ -1,5 +1,5 @@
 {
-    "updatedAt": "2026-03-06T17:00:57.451Z",
+    "updatedAt": "2026-03-07T00:58:46.836Z",
     "createdAt": "2026-03-06T14:57:00.056Z",
     "id": "laqPZA8mkFmxzj61",
     "name": "asignar_priorizacion",
@@ -35,6 +35,41 @@
         },
         {
             "parameters": {
+                "conditions": {
+                    "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "loose",
+                        "version": 3
+                    },
+                    "conditions": [
+                        {
+                            "id": "9a9c24ff-d899-46b1-b6cc-9b03f2ed732b",
+                            "leftValue": "={{$('extraer datos').all()}}",
+                            "rightValue": 0,
+                            "operator": {
+                                "type": "array",
+                                "operation": "notEmpty",
+                                "singleValue": true
+                            }
+                        }
+                    ],
+                    "combinator": "and"
+                },
+                "looseTypeValidation": true,
+                "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+                416,
+                0
+            ],
+            "id": "f5c358fb-80f4-4801-99b6-be1945018977",
+            "name": "verificar dataset"
+        },
+        {
+            "parameters": {
                 "operation": "xlsx",
                 "binaryPropertyName": "file",
                 "options": {
@@ -49,7 +84,59 @@
                 0
             ],
             "id": "3739f213-d0e3-48c6-8f20-3687b7cabcb0",
-            "name": "extract data"
+            "name": "extraer datos"
+        },
+        {
+            "parameters": {
+                "operation": "executeQuery",
+                "query": "select \n\tmps.prioridad, mps.detalle_prioridad, mps.alcance_accion_definida\nfrom maestro_priorizacion_suspension mps\nwhere mps.eliminado = $1 and mps.fecha_registro::date = $2::date;",
+                "options": {
+                    "queryReplacement": "={{ false }}, {{ $today }}",
+                    "treatQueryParametersInSingleQuotesAsText": true
+                }
+            },
+            "type": "n8n-nodes-base.postgres",
+            "typeVersion": 2.6,
+            "position": [
+                912,
+                -160
+            ],
+            "id": "f2070233-2310-46f9-bccb-0c4c366fb610",
+            "name": "maestro_priorizacion_suspension",
+            "alwaysOutputData": true,
+            "executeOnce": true,
+            "credentials": {
+                "postgres": {
+                    "id": "245ST6mNX6ovIjBU",
+                    "name": "scrc_db"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "operation": "executeQuery",
+                "query": "select \n    ppc.prioridad, \n    ppc.cuenta, \n    ppc.numero_os, \n    ppc.tipo_orden, \n    ppc.tipo_brigada, \n    ppc.tipo_actividad, \n    ppc.fecha_asignacion_cliente\nfrom public.pmu_priorizacion_cliente ppc\nwhere ppc.eliminado = $1 and ppc.fecha_registro = $2::date;",
+                "options": {
+                    "queryReplacement": "={{ false }}, {{ $today }}",
+                    "treatQueryParametersInSingleQuotesAsText": true
+                }
+            },
+            "type": "n8n-nodes-base.postgres",
+            "typeVersion": 2.6,
+            "position": [
+                1152,
+                -160
+            ],
+            "id": "b6994fb5-d6fb-4918-9c94-c747b2c4412f",
+            "name": "pmu_priorizacion_cliente",
+            "executeOnce": true,
+            "alwaysOutputData": false,
+            "credentials": {
+                "postgres": {
+                    "id": "245ST6mNX6ovIjBU",
+                    "name": "scrc_db"
+                }
+            }
         }
     ],
     "connections": {
@@ -57,11 +144,27 @@
             "main": [
                 [
                     {
-                        "node": "extract data",
+                        "node": "extraer datos",
                         "type": "main",
                         "index": 0
                     }
                 ]
+            ]
+        },
+        "extraer datos": {
+            "main": [
+                [
+                    {
+                        "node": "verificar dataset",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "verificar dataset": {
+            "main": [
+                []
             ]
         }
     },
@@ -70,12 +173,6 @@
         "binaryMode": "separate",
         "availableInMCP": false
     },
-    "staticData": null,
-    "meta": null,
     "pinData": {},
-    "versionId": "a2d31111-033e-4846-885b-591616dadfe7",
-    "activeVersionId": null,
-    "versionCounter": 27,
-    "triggerCount": 0,
-    "tags": []
+    "versionId": "a00cb818-6062-4150-acf4-b217621a23ff"
 }

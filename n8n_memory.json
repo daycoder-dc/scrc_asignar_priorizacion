@@ -1,0 +1,119 @@
+{
+    "workflow": {
+        "name": "asignar_priorizacion",
+        "id": "laqPZA8mkFmxzj61",
+        "source_file": "workflows/asignar_priorizacion.json",
+        "description": "Workflow para la asignación de priorización de PMUs.",
+        "key_nodes": [
+            {
+                "name": "load master db",
+                "type": "formTrigger",
+                "purpose": "Carga de archivo maestro (.xlsx) mediante formulario."
+            },
+            {
+                "name": "extraer datos",
+                "type": "extractFromFile",
+                "purpose": "Extracción de datos desde el archivo Excel Maestro."
+            },
+            {
+                "name": "verificar dataset",
+                "type": "if",
+                "purpose": "Verificación de que el dataset maestro no esté vacío."
+            },
+            {
+                "name": "load PMU",
+                "type": "formTrigger",
+                "purpose": "Carga de archivo de PMUs priorizados (.xlsx) mediante formulario."
+            },
+            {
+                "name": "extraer datos1",
+                "type": "extractFromFile",
+                "purpose": "Extracción de datos desde el archivo de PMUs."
+            },
+            {
+                "name": "If",
+                "type": "if",
+                "purpose": "Verificación de que el dataset de PMUs no esté vacío."
+            },
+            {
+                "name": "Merge",
+                "type": "merge",
+                "purpose": "Unión de los datos del maestro y los PMUs priorizados."
+            },
+            {
+                "name": "maestro_priorizacion_suspension",
+                "type": "postgres",
+                "purpose": "Consulta de criterios de priorización de suspensión desde la base de datos."
+            }
+        ]
+    },
+    "project_context": {
+        "objective": "Automatizar la asignación y priorización de PMUs.",
+        "macro_process_stages": [
+            "Suspensión",
+            "Corte",
+            "Reconexión"
+        ],
+        "input_schemas": [
+            "schemas/Maestro_BD_Norte 1.xlsx",
+            "schemas/Maestro_de_Priorización_Suspensión.xlsx",
+            "schemas/PMU_Priorizados_Cliente.xlsx"
+        ],
+        "process_diagram": "docs/Macro proceso SCRC TO-BE_v2 1.png"
+    },
+    "automations_roadmap": [
+        {
+            "id": "1",
+            "name": "asignar_priorizacion",
+            "status": "in_progress",
+            "description": "Ingest files, prepare master DB, and identify prioritized accounts."
+        },
+        {
+            "id": "2",
+            "name": "actualizar_deuda_bia",
+            "status": "planned",
+            "description": "Connect with BIA (Balance) to fetch and update debt status per user account."
+        },
+        {
+            "id": "3",
+            "name": "filtrar_exclusiones",
+            "status": "planned",
+            "description": "Apply rules using 'Maestro de exclusiones' (Multifamiliar, inconsistency, minimum debt)."
+        },
+        {
+            "id": "4",
+            "name": "calcular_propension",
+            "status": "planned",
+            "description": "Evaluate behavioral rules based on 'Maestro Propensión'."
+        },
+        {
+            "id": "5",
+            "name": "actualizar_control_operativo",
+            "status": "planned",
+            "description": "Record processed state in 'Control Operativo' database."
+        },
+        {
+            "id": "6",
+            "name": "definir_tipo_brigada",
+            "status": "planned",
+            "description": "Assign brigade type using 'Maestro tipo de brigadas'."
+        },
+        {
+            "id": "7",
+            "name": "asignacion_masiva_comunicaciones",
+            "status": "planned",
+            "description": "Handle SPIREM load and trigger WhatsApp notifications for field technicians."
+        }
+    ],
+    "history": {
+        "initial_import": "2026-03-06",
+        "last_update": "2026-03-07",
+        "updates": [
+            "Importación inicial del workflow básico.",
+            "Actualización de nodos: se cambió manualTrigger por formTrigger 'load master db' y se añadió nodo 'extract data'.",
+            "Actualización del context memory (n8n_memory.json) con roadmap de automatizaciones basado en Macro proceso SCRC TO-BE_v2 1.png.",
+            "Sincronización con n8n: se añadieron nodos 'verificar dataset', 'maestro_priorizacion_suspension' y 'pmu_priorizacion_cliente'.",
+            "Sincronización manual: Detectados nuevos nodos 'load PMU', 'extraer datos1', 'Merge' y nodos de error. El workflow ahora procesa dos entradas de archivos."
+        ]
+    }
+}
