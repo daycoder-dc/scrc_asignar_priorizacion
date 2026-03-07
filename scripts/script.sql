@@ -13,29 +13,6 @@ select
 from maestro_priorizacion_suspension mps
 where mps.eliminado = false and mps.fecha_registro::date = current_date;
 
-create table pmu_priorizacion_cliente (
-	id serial primary key,
-	prioridad int not null,
-	cuenta varchar not null,
-	numero_os varchar not null,
-	tipo_orden varchar not null,
-	tipo_brigada varchar not null,
-	tipo_actividad varchar not null,
-	fecha_asignacion_cliente date not null,
-	eliminado boolean null default false,
-	fecha_registro timestamptz null default current_timestamp
-);
-
-select 
-    ppc.prioridad, 
-    ppc.cuenta, 
-    ppc.numero_os, 
-    ppc.tipo_orden, 
-    ppc.tipo_brigada, 
-    ppc.tipo_actividad, 
-    ppc.fecha_asignacion_cliente
-from pmu_priorizacion_cliente ppc
-where ppc.eliminado = false and ppc.fecha_registro::date = current_date;
 
 create table maestro_db (
     id serial primary key,
