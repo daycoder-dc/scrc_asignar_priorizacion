@@ -1,6 +1,6 @@
 
 create table maestro_priorizacion_suspension (
-	id serial primary key,
+	id uuid primary key default gen_random_uuid(),
 	prioridad int not null,
 	detalle_prioridad varchar not null,
 	alcance_accion_definida text not null,
@@ -9,7 +9,7 @@ create table maestro_priorizacion_suspension (
 );
 
 create table maestro_db (
-    id serial primary key,
+    id uuid primary key default gen_random_uuid(),
     num_lote varchar null,
     tecnico varchar null,
     orden varchar null,
