@@ -6,44 +6,79 @@
         "description": "Workflow para la asignación de priorización de PMUs.",
         "key_nodes": [
             {
-                "name": "load master db",
-                "type": "formTrigger",
-                "purpose": "Carga de archivo maestro (.xlsx) mediante formulario."
+                "name": "cargar_pmu",
+                "type": "webhook",
+                "purpose": "Webhook para la carga de archivo de PMUs priorizados."
             },
             {
-                "name": "extraer datos",
-                "type": "extractFromFile",
-                "purpose": "Extracción de datos desde el archivo Excel Maestro."
-            },
-            {
-                "name": "verificar dataset",
-                "type": "if",
-                "purpose": "Verificación de que el dataset maestro no esté vacío."
-            },
-            {
-                "name": "load PMU",
-                "type": "formTrigger",
-                "purpose": "Carga de archivo de PMUs priorizados (.xlsx) mediante formulario."
-            },
-            {
-                "name": "extraer datos1",
+                "name": "extractor_1",
                 "type": "extractFromFile",
                 "purpose": "Extracción de datos desde el archivo de PMUs."
             },
             {
-                "name": "If",
+                "name": "normalizacion_col_1",
+                "type": "renameKeys",
+                "purpose": "Normalización de nombres de columnas de PMU."
+            },
+            {
+                "name": "verificar_registro_pmu",
+                "type": "postgres",
+                "purpose": "Verificar en base de datos si el PMU ya fue registrado hoy."
+            },
+            {
+                "name": "merge_normalizacion_1",
+                "type": "merge",
+                "purpose": "Unión del flujo de normalización con la condición de PMU no registrado."
+            },
+            {
+                "name": "pmu_no_registrado",
                 "type": "if",
-                "purpose": "Verificación de que el dataset de PMUs no esté vacío."
+                "purpose": "Condición para decidir si registrar el PMU o avanzar."
+            },
+            {
+                "name": "registrar_pmu",
+                "type": "postgres",
+                "purpose": "Registrar datos de PMU en la base de datos."
+            },
+            {
+                "name": "cargar_maestro_db",
+                "type": "webhook",
+                "purpose": "Webhook para la carga de archivo maestro Maestro_BD."
+            },
+            {
+                "name": "extrator_2",
+                "type": "extractFromFile",
+                "purpose": "Extracción de datos desde el archivo Maestro."
+            },
+            {
+                "name": "normalizacion_col_2",
+                "type": "renameKeys",
+                "purpose": "Normalización de nombres de columnas del Maestro."
+            },
+            {
+                "name": "verificar_registro_maestro_db",
+                "type": "postgres",
+                "purpose": "Verificar en base de datos si el maestro coincidente está cargado."
+            },
+            {
+                "name": "maestro_sin_registro",
+                "type": "if",
+                "purpose": "Condición para avanzar si el maestro existe o detener de lo contrario."
             },
             {
                 "name": "Merge",
                 "type": "merge",
-                "purpose": "Unión de los datos del maestro y los PMUs priorizados."
+                "purpose": "Unión de los datos de PMU normalizados y el Maestro."
             },
             {
-                "name": "maestro_priorizacion_suspension",
-                "type": "postgres",
-                "purpose": "Consulta de criterios de priorización de suspensión desde la base de datos."
+                "name": "respuesta_1",
+                "type": "respondToWebhook",
+                "purpose": "Responder al webhook indicando estado pendiente."
+            },
+            {
+                "name": "respuesta_3",
+                "type": "respondToWebhook",
+                "purpose": "Responder al webhook indicando avance al cruce de datos."
             }
         ]
     },
@@ -107,13 +142,15 @@
     ],
     "history": {
         "initial_import": "2026-03-06",
-        "last_update": "2026-03-07",
+        "last_update": "2026-03-08",
         "updates": [
             "Importación inicial del workflow básico.",
             "Actualización de nodos: se cambió manualTrigger por formTrigger 'load master db' y se añadió nodo 'extract data'.",
             "Actualización del context memory (n8n_memory.json) con roadmap de automatizaciones basado en Macro proceso SCRC TO-BE_v2 1.png.",
             "Sincronización con n8n: se añadieron nodos 'verificar dataset', 'maestro_priorizacion_suspension' y 'pmu_priorizacion_cliente'.",
-            "Sincronización manual: Detectados nuevos nodos 'load PMU', 'extraer datos1', 'Merge' y nodos de error. El workflow ahora procesa dos entradas de archivos."
+            "Sincronización manual: Detectados nuevos nodos 'load PMU', 'extraer datos1', 'Merge' y nodos de error. El workflow ahora procesa dos entradas de archivos.",
+            "Sincronización con n8n: Se actualizaron los nodos del flujo. Los triggers cambiaron a webhooks, se incluyeron nodos de normalización, persistencia en DB Postgres y respuestas HTTP, y un nodo Merge principal.",
+            "Sincronización con n8n remoto: Se añadió el nodo 'merge_normalizacion_1' al flujo para unificar datos antes de registrar PMU."
         ]
     }
 }
