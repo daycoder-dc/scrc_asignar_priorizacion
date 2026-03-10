@@ -1,6 +1,6 @@
 
 create table maestro_priorizacion_suspension (
-	id serial primary key,
+	id uuid primary key default gen_random_uuid(),
 	prioridad int not null,
 	detalle_prioridad varchar not null,
 	alcance_accion_definida text not null,
@@ -8,14 +8,8 @@ create table maestro_priorizacion_suspension (
 	fecha_registro timestamptz null default current_timestamp
 );
 
-select 
-	mps.prioridad, mps.detalle_prioridad, mps.alcance_accion_definida
-from maestro_priorizacion_suspension mps
-where mps.eliminado = false and mps.fecha_registro::date = current_date;
-
-
 create table maestro_db (
-    id serial primary key,
+    id uuid primary key default gen_random_uuid(),
     num_lote varchar null,
     tecnico varchar null,
     orden varchar null,
@@ -45,7 +39,7 @@ create table maestro_db (
     tipo_suspension_scr varchar null,
     estado_del_servicio varchar null,
     deuda_hoy decimal null,
-    fecha_de_vencimiento date null,
+    fecha_de_vencimiento int null,
     facturas_vencidas_2 int null,
     nombre_del_cliente varchar null,
     tarifa_2 varchar null,
@@ -62,7 +56,6 @@ create table maestro_db (
     exclusiones_temporal varchar null,
     tipo_brigada varchar null,
     cluster varchar null,
-    zona_maestro varchar null,
     eliminado boolean default false,
     fecha_registro timestamptz default current_timestamp
 );
