@@ -1,13 +1,3 @@
-
-create table maestro_priorizacion_suspension (
-	id uuid primary key default gen_random_uuid(),
-	prioridad int not null,
-	detalle_prioridad varchar not null,
-	alcance_accion_definida text not null,
-	eliminado boolean null default false,
-	fecha_registro timestamptz null default current_timestamp
-);
-
 create table maestro_db (
     id uuid primary key default gen_random_uuid(),
     num_lote varchar null,
@@ -58,4 +48,17 @@ create table maestro_db (
     cluster varchar null,
     eliminado boolean default false,
     fecha_registro timestamptz default current_timestamp
+);
+
+create table pmu_priorizacion_cliente (
+    id uuid primary key default gen_random_uuid(),
+    prioridad int not null,
+    cuenta varchar not null,
+    numero_os varchar not null,
+    tipo_orden varchar not null,
+    tipo_brigada varchar not null,
+    tipo_actividad varchar not null,
+    fecha_asignacion_cliente int not null,
+    eliminado boolean null default false,
+    fecha_registro timestamptz null default current_timestamp
 );
