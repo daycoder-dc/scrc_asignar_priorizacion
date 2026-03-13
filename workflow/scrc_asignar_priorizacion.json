@@ -1,11 +1,5 @@
 {
-  "updatedAt": "2026-03-11T13:26:44.752Z",
-  "createdAt": "2026-03-10T21:34:11.283Z",
-  "id": "vm6evTh9Te5BLYVY",
   "name": "scrc_asignar_priorizacion",
-  "description": "Procesa el archivo maestro db y hace el cruce con el archivo priorizaci\u00f3n cliente para la asignaci\u00f3n de prioridad",
-  "active": false,
-  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -154,232 +148,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "d5872ce6-905a-4237-8051-f557356f4860",
-        "authentication": "headerAuth",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "position": [
-        96,
-        480
-      ],
-      "id": "16c0a67f-23f3-4947-956b-4830c8379c52",
-      "name": "cargar_maestro_db",
-      "webhookId": "d5872ce6-905a-4237-8051-f557356f4860",
-      "alwaysOutputData": false,
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "MbdcIpK6Ba54NGOm",
-          "name": "scrc_asignar_priorizacion"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "keys": {
-          "key": [
-            {
-              "currentKey": "Num_Lote",
-              "newKey": "num_lote"
-            },
-            {
-              "currentKey": "T\u00e9cnico",
-              "newKey": "tecnico"
-            },
-            {
-              "currentKey": "Orden",
-              "newKey": "orden"
-            },
-            {
-              "currentKey": "Tip_Orden",
-              "newKey": "tipo_orden"
-            },
-            {
-              "currentKey": "NIC",
-              "newKey": "nic"
-            },
-            {
-              "currentKey": "Zona",
-              "newKey": "zona"
-            },
-            {
-              "currentKey": "Departamento",
-              "newKey": "departamento"
-            },
-            {
-              "currentKey": "Municipio",
-              "newKey": "municipio"
-            },
-            {
-              "currentKey": "Corregimiento",
-              "newKey": "corregimiento"
-            },
-            {
-              "currentKey": "Localidad",
-              "newKey": "localidad"
-            },
-            {
-              "currentKey": "Tip_Via",
-              "newKey": "tip_via"
-            },
-            {
-              "currentKey": "Nom_Calle",
-              "newKey": "nom_calle"
-            },
-            {
-              "currentKey": "Duplicador",
-              "newKey": "duplicador"
-            },
-            {
-              "currentKey": "Num_Puerta",
-              "newKey": "num_puerta"
-            },
-            {
-              "currentKey": "Direccion",
-              "newKey": "direccion"
-            },
-            {
-              "currentKey": "Dir_Referencia",
-              "newKey": "dir_referencia"
-            },
-            {
-              "currentKey": "Nombre Cliente",
-              "newKey": "nombre_cliente"
-            },
-            {
-              "currentKey": "Tarifa",
-              "newKey": "tarifa"
-            },
-            {
-              "currentKey": "Deuda Vencida",
-              "newKey": "deuda_vencida"
-            },
-            {
-              "currentKey": "Facturas Vencidas",
-              "newKey": "facturas_vencidas"
-            },
-            {
-              "currentKey": "N\u00b0 Medidor",
-              "newKey": "n_medidor"
-            },
-            {
-              "currentKey": "Marca Medidor",
-              "newKey": "marca_medidor"
-            },
-            {
-              "currentKey": "Antiguedad",
-              "newKey": "antiguedad"
-            },
-            {
-              "currentKey": "Estado",
-              "newKey": "estado"
-            },
-            {
-              "currentKey": "CT Gestor",
-              "newKey": "ct_gestor"
-            },
-            {
-              "currentKey": "Comentario",
-              "newKey": "comentario"
-            },
-            {
-              "currentKey": "Tipo_Suspension(SCR)",
-              "newKey": "tipo_suspension_scr"
-            },
-            {
-              "currentKey": "Estado del Servicio",
-              "newKey": "estado_del_servicio"
-            },
-            {
-              "currentKey": " Deuda_Hoy ",
-              "newKey": "deuda_hoy"
-            },
-            {
-              "currentKey": "Fecha_de_Vencimiento",
-              "newKey": "fecha_de_vencimiento"
-            },
-            {
-              "currentKey": "Facturas_Vencidas",
-              "newKey": "facturas_vencidas_2"
-            },
-            {
-              "currentKey": "Nombre_del_Cliente",
-              "newKey": "nombre_del_cliente"
-            },
-            {
-              "currentKey": "Tarifa_1",
-              "newKey": "tarifa_2"
-            },
-            {
-              "currentKey": "Marca_Medidor",
-              "newKey": "marca_medidor_2"
-            },
-            {
-              "currentKey": "Numero de medidor",
-              "newKey": "numero_de_medidor"
-            },
-            {
-              "currentKey": "Municipio_1",
-              "newKey": "municipio_2"
-            },
-            {
-              "currentKey": "Corregimiento_1",
-              "newKey": "corregimiento_2"
-            },
-            {
-              "currentKey": "Barrio",
-              "newKey": "barrio"
-            },
-            {
-              "currentKey": "Direcci\u00f3n",
-              "newKey": "direccion_2"
-            },
-            {
-              "currentKey": "Multifamiliar",
-              "newKey": "multifamiliar"
-            },
-            {
-              "currentKey": "Material_en_Bodega",
-              "newKey": "material_en_bodega"
-            },
-            {
-              "currentKey": "Maestro_Zona",
-              "newKey": "maestro_zona"
-            },
-            {
-              "currentKey": "Priorizaci\u00f3n",
-              "newKey": "priorizacion"
-            },
-            {
-              "currentKey": "Exclusiones Temporal",
-              "newKey": "exclusiones_temporal"
-            },
-            {
-              "currentKey": "Tipo_Brigada",
-              "newKey": "tipo_brigada"
-            },
-            {
-              "currentKey": "Cluster",
-              "newKey": "cluster"
-            }
-          ]
-        },
-        "additionalOptions": {}
-      },
-      "type": "n8n-nodes-base.renameKeys",
-      "typeVersion": 1,
-      "position": [
-        560,
-        480
-      ],
-      "id": "5a94868c-36d4-447e-8962-ac2d57eb5e2d",
-      "name": "normalizacion_col_2"
-    },
-    {
-      "parameters": {
         "keys": {
           "key": [
             {
@@ -407,7 +175,7 @@
               "newKey": "tipo_actividad"
             },
             {
-              "currentKey": "Fecha_Asignaci\u00f3n_Cliente",
+              "currentKey": "Fecha_Asignación_Cliente",
               "newKey": "fecha_asignacion_cliente"
             }
           ]
@@ -443,24 +211,6 @@
     },
     {
       "parameters": {
-        "operation": "xlsx",
-        "options": {
-          "headerRow": true,
-          "includeEmptyCells": true,
-          "readAsString": true
-        }
-      },
-      "type": "n8n-nodes-base.extractFromFile",
-      "typeVersion": 1.1,
-      "position": [
-        336,
-        480
-      ],
-      "id": "63883f67-22fc-4f35-a7a6-a35fbd0a6ba6",
-      "name": "extrator_2"
-    },
-    {
-      "parameters": {
         "mode": "chooseBranch"
       },
       "type": "n8n-nodes-base.merge",
@@ -471,580 +221,6 @@
       ],
       "id": "0dc16456-0b41-4ac1-8806-fcfa586675ea",
       "name": "merge_normalizacion_1"
-    },
-    {
-      "parameters": {
-        "mode": "chooseBranch"
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2,
-      "position": [
-        1040,
-        496
-      ],
-      "id": "a96bffa6-b87d-4b4b-92c4-98037e6eb35d",
-      "name": "merge_normalizacion_2"
-    },
-    {
-      "parameters": {
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "maestro_db",
-          "mode": "list",
-          "cachedResultName": "maestro_db"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "num_puerta": "={{ $json.num_puerta }}",
-            "deuda_vencida": "={{ $json.deuda_vencida }}",
-            "facturas_vencidas": "={{ $json.facturas_vencidas }}",
-            "antiguedad": "={{ $json.antiguedad }}",
-            "deuda_hoy": "={{ $json.deuda_hoy }}",
-            "facturas_vencidas_2": "={{ $json.facturas_vencidas }}",
-            "multifamiliar": "={{ $json.multifamiliar }}",
-            "priorizacion": "={{ $json.priorizacion }}",
-            "num_lote": "={{ $json.num_lote }}",
-            "tecnico": "={{ $json.tecnico }}",
-            "orden": "={{ $json.orden }}",
-            "tip_orden": "={{ $json.tipo_orden }}",
-            "nic": "={{ $json.nic }}",
-            "zona": "={{ $json.zona }}",
-            "departamento": "={{ $json.departamento }}",
-            "municipio": "={{ $json.municipio }}",
-            "corregimiento": "={{ $json.corregimiento }}",
-            "localidad": "={{ $json.localidad }}",
-            "tip_via": "={{ $json.tip_via }}",
-            "nom_calle": "={{ $json.nom_calle }}",
-            "duplicador": "={{ $json.duplicador }}",
-            "direccion": "={{ $json.direccion }}",
-            "dir_referencia": "={{ $json.dir_referencia }}",
-            "nombre_cliente": "={{ $json.nombre_cliente }}",
-            "tarifa": "={{ $json.tarifa }}",
-            "marca_medidor": "={{ $json.marca_medidor }}",
-            "estado": "={{ $json.estado }}",
-            "ct_gestor": "={{ $json.ct_gestor }}",
-            "comentario": "={{ $json.comentario }}",
-            "tipo_suspension_scr": "={{ $json.tipo_suspension_scr }}",
-            "estado_del_servicio": "={{ $json.estado_del_servicio }}",
-            "fecha_de_vencimiento": "={{ $json.fecha_de_vencimiento }}",
-            "tarifa_2": "={{ $json.tarifa_2 }}",
-            "numero_de_medidor": "={{ $json.numero_de_medidor }}",
-            "marca_medidor_2": "={{ $json.marca_medidor_2 }}",
-            "municipio_2": "={{ $json.municipio_2 }}",
-            "corregimiento_2": "={{ $json.corregimiento_2 }}",
-            "barrio": "={{ $json.barrio }}",
-            "direccion_2": "={{ $json.direccion_2 }}",
-            "material_en_bodega": "={{ $json.material_en_bodega }}",
-            "maestro_zona": "={{ $json.maestro_zona }}",
-            "exclusiones_temporal": "={{ $json.exclusiones_temporal }}",
-            "tipo_brigada": "={{ $json.tipo_brigada }}",
-            "cluster": "={{ $json.cluster }}",
-            "num_medidor": "={{ $json.n_medidor }}",
-            "nombre_del_cliente_2": "={{ $json.nombre_del_cliente }}"
-          },
-          "matchingColumns": [
-            "id"
-          ],
-          "schema": [
-            {
-              "id": "id",
-              "displayName": "id",
-              "required": false,
-              "defaultMatch": true,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "num_lote",
-              "displayName": "num_lote",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "tecnico",
-              "displayName": "tecnico",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "orden",
-              "displayName": "orden",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "tip_orden",
-              "displayName": "tip_orden",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "nic",
-              "displayName": "nic",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "zona",
-              "displayName": "zona",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "departamento",
-              "displayName": "departamento",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "municipio",
-              "displayName": "municipio",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "corregimiento",
-              "displayName": "corregimiento",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "localidad",
-              "displayName": "localidad",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "tip_via",
-              "displayName": "tip_via",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "nom_calle",
-              "displayName": "nom_calle",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "duplicador",
-              "displayName": "duplicador",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "num_puerta",
-              "displayName": "num_puerta",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "direccion",
-              "displayName": "direccion",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "dir_referencia",
-              "displayName": "dir_referencia",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "nombre_cliente",
-              "displayName": "nombre_cliente",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "tarifa",
-              "displayName": "tarifa",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "deuda_vencida",
-              "displayName": "deuda_vencida",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "facturas_vencidas",
-              "displayName": "facturas_vencidas",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "num_medidor",
-              "displayName": "num_medidor",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "marca_medidor",
-              "displayName": "marca_medidor",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "antiguedad",
-              "displayName": "antiguedad",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "estado",
-              "displayName": "estado",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "ct_gestor",
-              "displayName": "ct_gestor",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "comentario",
-              "displayName": "comentario",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "tipo_suspension_scr",
-              "displayName": "tipo_suspension_scr",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "estado_del_servicio",
-              "displayName": "estado_del_servicio",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "deuda_hoy",
-              "displayName": "deuda_hoy",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "fecha_de_vencimiento",
-              "displayName": "fecha_de_vencimiento",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "facturas_vencidas_2",
-              "displayName": "facturas_vencidas_2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "nombre_del_cliente_2",
-              "displayName": "nombre_del_cliente_2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "tarifa_2",
-              "displayName": "tarifa_2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "marca_medidor_2",
-              "displayName": "marca_medidor_2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "numero_de_medidor",
-              "displayName": "numero_de_medidor",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "municipio_2",
-              "displayName": "municipio_2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "corregimiento_2",
-              "displayName": "corregimiento_2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "barrio",
-              "displayName": "barrio",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "direccion_2",
-              "displayName": "direccion_2",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "multifamiliar",
-              "displayName": "multifamiliar",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "material_en_bodega",
-              "displayName": "material_en_bodega",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "maestro_zona",
-              "displayName": "maestro_zona",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "priorizacion",
-              "displayName": "priorizacion",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "exclusiones_temporal",
-              "displayName": "exclusiones_temporal",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "tipo_brigada",
-              "displayName": "tipo_brigada",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "cluster",
-              "displayName": "cluster",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "eliminado",
-              "displayName": "eliminado",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "boolean",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "fecha_registro",
-              "displayName": "fecha_registro",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "dateTime",
-              "canBeUsedToMatch": true,
-              "removed": true
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {
-          "queryBatching": "transaction",
-          "replaceEmptyStrings": true
-        }
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1296,
-        496
-      ],
-      "id": "2c9b5da6-1034-46d3-9ea1-4c3fc1d35524",
-      "name": "registrar_maestro_db",
-      "credentials": {
-        "postgres": {
-          "id": "CPzWAqzcCZFX9kbP",
-          "name": "scrc_database"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT COUNT(*)\nFROM pmu_priorizacion_cliente ppc\nWHERE ppc.eliminado = $1\nAND ppc.fecha_registro::DATE = CURRENT_DATE;",
-        "options": {
-          "queryReplacement": "false,"
-        }
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1536,
-        496
-      ],
-      "id": "0c63bd50-a5e2-4ab4-a7dd-49aff8966728",
-      "name": "consultar_registros_pmu",
-      "executeOnce": true,
-      "credentials": {
-        "postgres": {
-          "id": "CPzWAqzcCZFX9kbP",
-          "name": "scrc_database"
-        }
-      }
     },
     {
       "parameters": {
@@ -1715,31 +891,6 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "UPDATE maestro_db\nSET eliminado = $1\nWHERE fecha_registro::DATE = CURRENT_DATE;",
-        "options": {
-          "queryBatching": "transaction",
-          "queryReplacement": "true,"
-        }
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        800,
-        592
-      ],
-      "id": "f623bb82-a83f-451c-9eb3-bbbdacba639c",
-      "name": "eliminar_maestro",
-      "executeOnce": true,
-      "credentials": {
-        "postgres": {
-          "id": "CPzWAqzcCZFX9kbP",
-          "name": "scrc_database"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
         "query": "UPDATE pmu_priorizacion_cliente\nSET eliminado = $1\nWHERE fecha_registro::DATE = CURRENT_DATE;",
         "options": {
           "queryBatching": "transaction",
@@ -1764,8 +915,8 @@
     {
       "parameters": {
         "authentication": "basicAuth",
-        "formTitle": "Asignaci\u00f3n de prioridad",
-        "formDescription": "Cargue el formato de excel 'PMU_Priorizados_Cliente' para iniciar con el proceso de automatizaci\u00f3n.",
+        "formTitle": "Asignación de prioridad",
+        "formDescription": "Cargue el formato de excel 'PMU_Priorizados_Cliente' para iniciar con el proceso de automatización.",
         "formFields": {
           "values": [
             {
@@ -1810,18 +961,6 @@
       "name": "continua"
     },
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        3680,
-        240
-      ],
-      "id": "c982739b-382a-4185-85e2-a50cd00140d4",
-      "name": "termina",
-      "executeOnce": true
-    },
-    {
       "parameters": {
         "conditions": {
           "options": {
@@ -1858,42 +997,8 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "2f66543c-ec66-40b8-a8fd-42783f9fd258",
-              "leftValue": "={{ $json.count }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "gt"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        1776,
-        496
-      ],
-      "id": "7520e793-3de3-4c3f-a531-56ceee7677e5",
-      "name": "pmu_valido"
-    },
-    {
-      "parameters": {
         "operation": "completion",
-        "completionTitle": "Asignaci\u00f3n de prioridades",
+        "completionTitle": "Asignación de prioridades",
         "completionMessage": "Flujo iniciado exitosamente!",
         "options": {}
       },
@@ -1909,42 +1014,8 @@
     },
     {
       "parameters": {
-        "respondWith": "json",
-        "responseBody": "{\n  \"status\": \"Flujo iniciado exitosamente!\"\n}",
-        "options": {
-          "responseCode": 200
-        }
-      },
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.5,
-      "position": [
-        1984,
-        480
-      ],
-      "id": "d27c2186-0326-47cd-be9c-8de4d30f8351",
-      "name": "respuesta_2"
-    },
-    {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "{\n  \"status\": \"Pendiente por recibir el PMU del cliente\"\n}",
-        "options": {
-          "responseCode": 200
-        }
-      },
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.5,
-      "position": [
-        1984,
-        688
-      ],
-      "id": "3ee87157-5bb2-44ee-a61d-50b7f57309f1",
-      "name": "respuesta_3"
-    },
-    {
-      "parameters": {
         "operation": "completion",
-        "completionTitle": "Asignaci\u00f3n de prioridades",
+        "completionTitle": "Asignación de prioridades",
         "completionMessage": "El flujo esta pendiente por recibir el Maestro DB",
         "options": {}
       },
@@ -1952,46 +1023,72 @@
       "typeVersion": 2.5,
       "position": [
         1984,
-        208
+        240
       ],
       "id": "ab098d8a-acd0-4589-a27e-966c2ab5792f",
       "name": "respuesta_4",
       "webhookId": "d8a33563-7362-463f-8d11-86a03bf3e123"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "ep7rEVyhuYuOWXRI",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ep7rEVyhuYuOWXRI",
+          "cachedResultName": "scrc_exclusiones"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        3680,
+        240
+      ],
+      "id": "7040ffcf-6621-4b89-ad49-ae876410512c",
+      "name": "ejecutar_exclusiones",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "path": "d5872ce6-905a-4237-8051-f557356f4860",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        1984,
+        448
+      ],
+      "id": "16c0a67f-23f3-4947-956b-4830c8379c52",
+      "name": "cargar_maestro_db",
+      "webhookId": "d5872ce6-905a-4237-8051-f557356f4860",
+      "alwaysOutputData": false,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "MbdcIpK6Ba54NGOm",
+          "name": "scrc_asignar_priorizacion"
+        }
+      }
     }
   ],
+  "pinData": {},
   "connections": {
     "registrar_pmu": {
       "main": [
         [
           {
             "node": "consultar_registros_maestro_db",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "cargar_maestro_db": {
-      "main": [
-        [
-          {
-            "node": "extrator_2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "normalizacion_col_2": {
-      "main": [
-        [
-          {
-            "node": "eliminar_maestro",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "merge_normalizacion_2",
             "type": "main",
             "index": 0
           }
@@ -2025,55 +1122,11 @@
         ]
       ]
     },
-    "extrator_2": {
-      "main": [
-        [
-          {
-            "node": "normalizacion_col_2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "merge_normalizacion_1": {
       "main": [
         [
           {
             "node": "registrar_pmu",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "merge_normalizacion_2": {
-      "main": [
-        [
-          {
-            "node": "registrar_maestro_db",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "registrar_maestro_db": {
-      "main": [
-        [
-          {
-            "node": "consultar_registros_pmu",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "consultar_registros_pmu": {
-      "main": [
-        [
-          {
-            "node": "pmu_valido",
             "type": "main",
             "index": 0
           }
@@ -2161,20 +1214,9 @@
       "main": [
         [
           {
-            "node": "termina",
+            "node": "ejecutar_exclusiones",
             "type": "main",
             "index": 0
-          }
-        ]
-      ]
-    },
-    "eliminar_maestro": {
-      "main": [
-        [
-          {
-            "node": "merge_normalizacion_2",
-            "type": "main",
-            "index": 1
           }
         ]
       ]
@@ -2235,24 +1277,6 @@
         ]
       ]
     },
-    "pmu_valido": {
-      "main": [
-        [
-          {
-            "node": "respuesta_2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "respuesta_3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "respuesta_1": {
       "main": [
         [
@@ -2264,7 +1288,7 @@
         ]
       ]
     },
-    "respuesta_2": {
+    "cargar_maestro_db": {
       "main": [
         [
           {
@@ -2276,39 +1300,17 @@
       ]
     }
   },
+  "active": false,
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
     "availableInMCP": true
   },
-  "staticData": null,
+  "versionId": "9ca72154-df50-4651-a880-db635781933a",
   "meta": {
-    "templateCredsSetupCompleted": true
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f1db0a1ad17d2ae7e69bbed33a7d5cfe2309a4bad00b9454fa52420c86de3e3d"
   },
-  "pinData": {},
-  "versionId": "8c52f0bf-4ca0-4ebb-a6df-71c0aae93644",
-  "activeVersionId": null,
-  "versionCounter": 134,
-  "triggerCount": 0,
-  "shared": [
-    {
-      "updatedAt": "2026-03-10T21:34:11.283Z",
-      "createdAt": "2026-03-10T21:34:11.283Z",
-      "role": "workflow:owner",
-      "workflowId": "vm6evTh9Te5BLYVY",
-      "projectId": "tbSLm0jAfkBMol4h",
-      "project": {
-        "updatedAt": "2026-03-10T21:20:03.939Z",
-        "createdAt": "2026-03-10T21:18:43.745Z",
-        "id": "tbSLm0jAfkBMol4h",
-        "name": "Dairo Carrasquilla <cdairo2204@gmail.com>",
-        "type": "personal",
-        "icon": null,
-        "description": null,
-        "creatorId": "cbf71aeb-83ae-49f5-bf7e-387ced082076"
-      }
-    }
-  ],
-  "tags": [],
-  "activeVersion": null
+  "id": "vm6evTh9Te5BLYVY",
+  "tags": []
 }

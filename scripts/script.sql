@@ -63,39 +63,6 @@ create table pmu_priorizacion_cliente (
     fecha_registro timestamptz null default current_timestamp
 );
 
-create table balanza (
-    id uuid primary key default gen_random_uuid(),
-    zona varchar not null,
-    cuenta varchar null,
-    producto varchar null,
-    nombre_cliente varchar null,
-    ejecutivo_cuenta varchar null,
-    direccion_cliente varchar null,
-    territorial varchar null,
-    municipio varchar null,
-    categoria varchar null,
-    subcategoria varchar null,
-    fecha_facturacion date null,
-    fecha_vencimiento date null,
-    facturado_energia decimal null,
-    facturado_irregularidades decimal null,
-    facturado_sin_irr decimal null,
-    facturado_terceros decimal null,
-    con_pago varchar null,
-    fecha_pago date null,
-    recaudo_energia decimal null,
-    recaudo_corriente decimal null,
-    recaudo_cartera decimal null,
-    recaudo_0_30 decimal null,
-    recaudo_energia_irr decimal null,
-    recaudo_sin_irr decimal null,
-    recaudo_terceros decimal null,
-    suma_de_deuda_energia_bdef decimal null,
-    suma_de_deuda_total decimal null,
-    suma_de_facturas decimal null,
-    fecha_registro timestamp null default current_timestamp
-);
-
 create table control_op (
     id uuid primary key default gen_random_uuid(),
     periodo varchar null,
@@ -215,8 +182,42 @@ create table control_op (
     fecha_registro timestamp null default current_timestamp
 );
 
-create table asignacion_control (
+create table balanza (
     id uuid primary key default gen_random_uuid(),
+    origen varchar not null,
+    cuenta varchar null,
+    producto varchar null,
+    nombre_cliente varchar null,
+    ejecutivo_cuenta varchar null,
+    direccion_cliente varchar null,
+    territorial varchar null,
+    municipio varchar null,
+    categoria varchar null,
+    subcategoria varchar null,
+    fecha_facturacion date null,
+    fecha_vencimiento date null,
+    facturado_energia decimal null,
+    facturado_irregularidades decimal null,
+    facturado_sin_irr decimal null,
+    facturado_terceros decimal null,
+    con_pago varchar null,
+    fecha_pago date null,
+    recaudo_energia decimal null,
+    recaudo_corriente decimal null,
+    recaudo_cartera decimal null,
+    recaudo_0_30 decimal null,
+    recaudo_energia_irr decimal null,
+    recaudo_sin_irr decimal null,
+    recaudo_terceros decimal null,
+    suma_de_deuda_energia_bdef decimal null,
+    suma_de_deuda_total decimal null,
+    suma_de_facturas decimal null,
+    fecha_registro timestamp null default current_timestamp
+);
+
+create table asignacion (
+    id uuid primary key default gen_random_uuid(),
+    origen varchar not null,
     num_lote varchar null,
     tecnico varchar null,
     orden varchar null,
@@ -246,4 +247,28 @@ create table asignacion_control (
     tipo_suspension_scr varchar null,
     estado_del_servicio varchar null,
     fecha_registro timestamp null default current_timestamp
+);
+
+create table observacion (
+    id uuid primary key default gen_random_uuid(),
+    origen varchar not null,
+    nic varchar null,
+    orden varchar null,
+    contrata varchar null,
+    tipo_suspension_solicitada varchar null,
+    tipo_brigada varchar null,
+    accion varchar null,
+    subaccion_subanomalia varchar null,
+    obs_fecha varchar null,
+    obs_acta varchar null,
+    obs_tecnico varchar null,
+    obs_predio varchar null,
+    obs_atendio varchar null,
+    obs_lectura varchar null,
+    obs_ss varchar null,
+    obs_ri varchar null,
+    obs_pas_comentario text null,
+    obs_medidor varchar null,
+    tl_estandarizado varchar null,
+    fecha_registro timestamptz null default current_timestamp
 );
