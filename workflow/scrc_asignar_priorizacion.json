@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-10T21:52:25.481Z",
+  "updatedAt": "2026-03-11T13:26:44.752Z",
   "createdAt": "2026-03-10T21:34:11.283Z",
   "id": "vm6evTh9Te5BLYVY",
   "name": "scrc_asignar_priorizacion",
@@ -7,30 +7,6 @@
   "active": false,
   "isArchived": false,
   "nodes": [
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "7709af1d-cfa2-4f49-8b83-6565b07a8619",
-        "authentication": "headerAuth",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "position": [
-        0,
-        0
-      ],
-      "id": "bcd45c44-26d0-4acd-b527-700a1f207fe5",
-      "name": "cargar_pmu",
-      "webhookId": "7709af1d-cfa2-4f49-8b83-6565b07a8619",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "MbdcIpK6Ba54NGOm",
-          "name": "scrc_asignar_priorizacion"
-        }
-      }
-    },
     {
       "parameters": {
         "schema": {
@@ -187,8 +163,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -16,
-        576
+        96,
+        480
       ],
       "id": "16c0a67f-23f3-4947-956b-4830c8379c52",
       "name": "cargar_maestro_db",
@@ -396,8 +372,8 @@
       "type": "n8n-nodes-base.renameKeys",
       "typeVersion": 1,
       "position": [
-        480,
-        576
+        560,
+        480
       ],
       "id": "5a94868c-36d4-447e-8962-ac2d57eb5e2d",
       "name": "normalizacion_col_2"
@@ -441,7 +417,7 @@
       "type": "n8n-nodes-base.renameKeys",
       "typeVersion": 1,
       "position": [
-        496,
+        560,
         0
       ],
       "id": "02c6b529-b6c8-446e-aaa4-7fdaf68d0412",
@@ -459,7 +435,7 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        240,
+        336,
         0
       ],
       "id": "3a65c4e8-8d12-41e6-8f20-b07b29db6e6e",
@@ -477,28 +453,11 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        240,
-        576
+        336,
+        480
       ],
       "id": "63883f67-22fc-4f35-a7a6-a35fbd0a6ba6",
       "name": "extrator_2"
-    },
-    {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "{\n  \"status\": \"pendiente\"\n}",
-        "options": {
-          "responseCode": 200
-        }
-      },
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.5,
-      "position": [
-        1952,
-        320
-      ],
-      "id": "d155bbaf-f752-4a8e-9c48-8e4b2c242619",
-      "name": "respuesta_1"
     },
     {
       "parameters": {
@@ -520,8 +479,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        960,
-        592
+        1040,
+        496
       ],
       "id": "a96bffa6-b87d-4b4b-92c4-98037e6eb35d",
       "name": "merge_normalizacion_2"
@@ -1051,8 +1010,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        1216,
-        592
+        1296,
+        496
       ],
       "id": "2c9b5da6-1034-46d3-9ea1-4c3fc1d35524",
       "name": "registrar_maestro_db",
@@ -1074,8 +1033,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        1488,
-        592
+        1536,
+        496
       ],
       "id": "0c63bd50-a5e2-4ab4-a7dd-49aff8966728",
       "name": "consultar_registros_pmu",
@@ -1114,91 +1073,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "2f66543c-ec66-40b8-a8fd-42783f9fd258",
-              "leftValue": "={{ $json.count }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        1760,
-        592
-      ],
-      "id": "7520e793-3de3-4c3f-a531-56ceee7677e5",
-      "name": "pmu_sin_registros"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "c711176c-d077-4201-9dec-4b33f145417e",
-              "leftValue": "={{ $json.count }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        1760,
-        16
-      ],
-      "id": "ce519839-4931-4193-a26f-0693ce3c6033",
-      "name": "maestro_sin_registros",
-      "executeOnce": false
-    },
-    {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "{\n  \"status\": \"procesado\"\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.5,
-      "position": [
-        2304,
-        320
-      ],
-      "id": "ba88189b-8820-490f-81d4-d5fe5b20e861",
-      "name": "respuesta_2",
-      "executeOnce": false
-    },
-    {
-      "parameters": {
         "operation": "executeQuery",
         "query": "select ppc.cuenta, ppc.prioridad\nfrom pmu_priorizacion_cliente ppc\nwhere ppc.eliminado = $1 and ppc.fecha_registro::date = current_date;",
         "options": {
@@ -1209,8 +1083,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        2544,
-        192
+        2512,
+        128
       ],
       "id": "f8a944af-2860-49fb-8cbc-2fffbd3cca29",
       "name": "pmu_data",
@@ -1233,8 +1107,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        2544,
-        416
+        2512,
+        352
       ],
       "id": "524105e0-7af6-4337-8fb9-b528aebbdfb7",
       "name": "maestro_data",
@@ -1250,8 +1124,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        3072,
-        304
+        3040,
+        240
       ],
       "id": "45a477fc-8ea1-45d9-ac76-b10f1f4ca193",
       "name": "combina_dataset"
@@ -1265,8 +1139,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2784,
-        416
+        2752,
+        352
       ],
       "id": "e3e305f5-ceab-49e9-9012-289164200d39",
       "name": "agrega_dataset_2"
@@ -1280,8 +1154,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2784,
-        192
+        2752,
+        128
       ],
       "id": "09aaddcf-9283-4017-b082-86486682a0a2",
       "name": "agrega_dataset_1",
@@ -1294,8 +1168,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3280,
-        304
+        3248,
+        240
       ],
       "id": "468a7ac2-d3a1-4ae0-8bf6-f4a2ea915899",
       "name": "asignacion_priorizacion",
@@ -1826,8 +1700,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        3488,
-        304
+        3472,
+        240
       ],
       "id": "eca27976-76f8-4807-8b30-a1a76ce4d02b",
       "name": "actualiza_maestro_db",
@@ -1837,17 +1711,6 @@
           "name": "scrc_database"
         }
       }
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        3696,
-        304
-      ],
-      "id": "c982739b-382a-4185-85e2-a50cd00140d4",
-      "name": "terminado"
     },
     {
       "parameters": {
@@ -1861,8 +1724,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        736,
-        720
+        800,
+        592
       ],
       "id": "f623bb82-a83f-451c-9eb3-bbbdacba639c",
       "name": "eliminar_maestro",
@@ -1886,8 +1749,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        768,
-        128
+        800,
+        112
       ],
       "id": "9e55c07d-c7e7-4e60-b46d-6d209eb9fdf0",
       "name": "eliminar_pmu",
@@ -1897,20 +1760,206 @@
           "name": "scrc_database"
         }
       }
+    },
+    {
+      "parameters": {
+        "authentication": "basicAuth",
+        "formTitle": "Asignaci\u00f3n de prioridad",
+        "formDescription": "Cargue el formato de excel 'PMU_Priorizados_Cliente' para iniciar con el proceso de automatizaci\u00f3n.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Archivo",
+              "fieldType": "file",
+              "fieldName": "data",
+              "acceptFileTypes": ".xlsx",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": true,
+          "buttonLabel": "Enviar"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        96,
+        0
+      ],
+      "id": "37d7df70-34c8-4b34-a9ab-03bb6a47f178",
+      "name": "cargar_pmu",
+      "webhookId": "77a69d70-77e9-4a48-abed-731e1ea30793",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "Y4Hb6z86Jevp6Bdk",
+          "name": "pmu_user"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        224
+      ],
+      "id": "1efd6e71-eb29-4a26-af26-ba91a6701ace",
+      "name": "continua"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3680,
+        240
+      ],
+      "id": "c982739b-382a-4185-85e2-a50cd00140d4",
+      "name": "termina",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c711176c-d077-4201-9dec-4b33f145417e",
+              "leftValue": "={{ $json.count }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1760,
+        16
+      ],
+      "id": "ce519839-4931-4193-a26f-0693ce3c6033",
+      "name": "maestro_valido",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "2f66543c-ec66-40b8-a8fd-42783f9fd258",
+              "leftValue": "={{ $json.count }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1776,
+        496
+      ],
+      "id": "7520e793-3de3-4c3f-a531-56ceee7677e5",
+      "name": "pmu_valido"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Asignaci\u00f3n de prioridades",
+        "completionMessage": "Flujo iniciado exitosamente!",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1984,
+        0
+      ],
+      "id": "e89557bf-5f89-4cff-a2bc-9046177675fb",
+      "name": "respuesta_1",
+      "webhookId": "c1adcd75-35a4-4024-b336-0c005614544f"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"status\": \"Flujo iniciado exitosamente!\"\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1984,
+        480
+      ],
+      "id": "d27c2186-0326-47cd-be9c-8de4d30f8351",
+      "name": "respuesta_2"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"status\": \"Pendiente por recibir el PMU del cliente\"\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1984,
+        688
+      ],
+      "id": "3ee87157-5bb2-44ee-a61d-50b7f57309f1",
+      "name": "respuesta_3"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Asignaci\u00f3n de prioridades",
+        "completionMessage": "El flujo esta pendiente por recibir el Maestro DB",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1984,
+        208
+      ],
+      "id": "ab098d8a-acd0-4589-a27e-966c2ab5792f",
+      "name": "respuesta_4",
+      "webhookId": "d8a33563-7362-463f-8d11-86a03bf3e123"
     }
   ],
   "connections": {
-    "cargar_pmu": {
-      "main": [
-        [
-          {
-            "node": "extractor_1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "registrar_pmu": {
       "main": [
         [
@@ -2024,7 +2073,7 @@
       "main": [
         [
           {
-            "node": "pmu_sin_registros",
+            "node": "pmu_valido",
             "type": "main",
             "index": 0
           }
@@ -2035,59 +2084,7 @@
       "main": [
         [
           {
-            "node": "maestro_sin_registros",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "pmu_sin_registros": {
-      "main": [
-        [
-          {
-            "node": "respuesta_1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "respuesta_2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "maestro_sin_registros": {
-      "main": [
-        [
-          {
-            "node": "respuesta_1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "respuesta_2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "respuesta_2": {
-      "main": [
-        [
-          {
-            "node": "pmu_data",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "maestro_data",
+            "node": "maestro_valido",
             "type": "main",
             "index": 0
           }
@@ -2164,7 +2161,7 @@
       "main": [
         [
           {
-            "node": "terminado",
+            "node": "termina",
             "type": "main",
             "index": 0
           }
@@ -2192,6 +2189,91 @@
           }
         ]
       ]
+    },
+    "cargar_pmu": {
+      "main": [
+        [
+          {
+            "node": "extractor_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "continua": {
+      "main": [
+        [
+          {
+            "node": "pmu_data",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "maestro_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "maestro_valido": {
+      "main": [
+        [
+          {
+            "node": "respuesta_1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "respuesta_4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pmu_valido": {
+      "main": [
+        [
+          {
+            "node": "respuesta_2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "respuesta_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "respuesta_1": {
+      "main": [
+        [
+          {
+            "node": "continua",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "respuesta_2": {
+      "main": [
+        [
+          {
+            "node": "continua",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -2204,9 +2286,9 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "927cdb33-3a25-4a8f-9023-586aadc6277e",
+  "versionId": "8c52f0bf-4ca0-4ebb-a6df-71c0aae93644",
   "activeVersionId": null,
-  "versionCounter": 6,
+  "versionCounter": 134,
   "triggerCount": 0,
   "shared": [
     {
