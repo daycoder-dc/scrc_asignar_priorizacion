@@ -52,13 +52,13 @@ create table maestro_db (
 
 create table pmu_priorizacion_cliente (
     id uuid primary key default gen_random_uuid(),
-    prioridad int not null,
-    cuenta varchar not null,
-    numero_os varchar not null,
-    tipo_orden varchar not null,
-    tipo_brigada varchar not null,
-    tipo_actividad varchar not null,
-    fecha_asignacion_cliente int not null,
+    prioridad int null,
+    cuenta varchar null,
+    numero_os varchar null,
+    tipo_orden varchar null,
+    tipo_brigada varchar null,
+    tipo_actividad varchar null,
+    fecha_asignacion_cliente int null,
     eliminado boolean null default false,
     fecha_registro timestamptz null default current_timestamp
 );
