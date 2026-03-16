@@ -20,7 +20,7 @@ create table maestro_db (
     tarifa varchar null,
     deuda_vencida decimal null,
     facturas_vencidas int null,
-    num_medidor varchar null,
+    n_medidor varchar null,
     marca_medidor varchar null,
     antiguedad int null,
     estado varchar null,
@@ -31,7 +31,7 @@ create table maestro_db (
     deuda_hoy decimal null,
     fecha_de_vencimiento int null,
     facturas_vencidas_2 int null,
-    nombre_del_cliente_2 varchar null,
+    nombre_del_cliente varchar null,
     tarifa_2 varchar null,
     marca_medidor_2 varchar null,
     numero_de_medidor varchar null,
@@ -52,13 +52,13 @@ create table maestro_db (
 
 create table pmu_priorizacion_cliente (
     id uuid primary key default gen_random_uuid(),
-    prioridad int not null,
-    cuenta varchar not null,
-    numero_os varchar not null,
-    tipo_orden varchar not null,
-    tipo_brigada varchar not null,
-    tipo_actividad varchar not null,
-    fecha_asignacion_cliente int not null,
+    prioridad int null,
+    cuenta varchar null,
+    numero_os varchar null,
+    tipo_orden varchar null,
+    tipo_brigada varchar null,
+    tipo_actividad varchar null,
+    fecha_asignacion_cliente int null,
     eliminado boolean null default false,
     fecha_registro timestamptz null default current_timestamp
 );
