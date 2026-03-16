@@ -1,4 +1,6 @@
-from fastapi import FastAPI, UploadFile
+from fastapi import FastAPI, UploadFile, status
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 from io import BytesIO
 
 
@@ -72,6 +74,9 @@ async def root(file:UploadFile):
         if_table_exists="append"
     )
 
-    print("Datos insertados.")
-    print(df.schema)
-    print(df.select(pl.col("deuda_vencida")))
+    return JSONResponse(
+        content=jsonable_encoder(
+            {"status": "procesado"}
+        ),
+        status_code=status.HTTP_202_ACCEPTED
+    )
