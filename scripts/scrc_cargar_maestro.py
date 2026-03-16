@@ -1,6 +1,7 @@
-from fastapi import FastAPI, UploadFile, status
+from fastapi import FastAPI, UploadFile, status, Form
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
+from typing import Annotated
 from io import BytesIO
 
 
@@ -11,7 +12,7 @@ uri = "postgresql://postgres:qEeSQnleCVRvntMi7MLgXvC9C9IRk6tq@187.124.80.69:5432
 app = FastAPI()
 
 @app.post("/")
-async def root(file:UploadFile):
+async def root(file:Annotated[UploadFile, Form()], origen:Annotated[str, Form()]):
     file_content = await file.read()
     file_buffer = BytesIO(file_content)
     df = pl.read_excel(file_buffer)
@@ -67,6 +68,10 @@ async def root(file:UploadFile):
 
     df = df.rename(map_columns)
 
+    df = df.with_columns(
+        pl.lit(origen).alias("origen")
+    )
+    
     df.write_database(
         table_name="maestro_db",
         connection=uri,

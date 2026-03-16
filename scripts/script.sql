@@ -46,9 +46,12 @@ create table maestro_db (
     exclusiones_temporal varchar null,
     tipo_brigada varchar null,
     cluster varchar null,
+    origen varchar not null,
+    excluido boolean default false,
     eliminado boolean default false,
     fecha_registro timestamptz default current_timestamp
 );
+
 
 create table pmu_priorizacion_cliente (
     id uuid primary key default gen_random_uuid(),
@@ -272,3 +275,4 @@ create table observacion (
     tl_estandarizado varchar null,
     fecha_registro timestamptz null default current_timestamp
 );
+
