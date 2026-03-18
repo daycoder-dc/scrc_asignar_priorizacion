@@ -52,7 +52,6 @@ create table maestro_db (
     fecha_registro timestamptz default current_timestamp
 );
 
-
 create table pmu_priorizacion_cliente (
     id uuid primary key default gen_random_uuid(),
     prioridad int8 null,
@@ -276,3 +275,18 @@ create table observacion (
     fecha_registro timestamptz null default current_timestamp
 );
 
+create table exlculisiones_reconexion (
+    id uuid primary key default gen_random_uuid(),
+    exclusion int null,
+    zona varchar null,
+    nic varchar null,
+    detalle_exclusion text null,
+    alcance_accion_definida text,
+    fecha_inicial date null,
+    fecha_final date null,
+    solicitante varchar null,
+    nombre_quien_solicita varchar null,
+    cargo_quien_solcita varchar null,
+    eliminado boolean default false,
+    fecha_registro timestamptz default current_timestamp
+);
