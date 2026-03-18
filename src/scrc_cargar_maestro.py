@@ -4,7 +4,6 @@ from fastapi.encoders import jsonable_encoder
 from typing import Annotated
 from io import BytesIO
 
-
 import polars as pl
 
 uri = "postgresql://postgres:qEeSQnleCVRvntMi7MLgXvC9C9IRk6tq@187.124.80.69:5432/scrc_db"
